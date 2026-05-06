@@ -342,10 +342,10 @@ let autoScroll;
 function startAutoScroll() {
   autoScroll = setInterval(() => {
     window.scrollBy({
-      top: 2, // kecil biar pelan
+      top: 1.5, // kecil biar pelan
       behavior: 'smooth'
     });
-  }, 1); // makin besar = makin lambat
+  }, 5); // makin besar = makin lambat
 }
 
 // stop kalau user scroll manual (biar UX enak)
