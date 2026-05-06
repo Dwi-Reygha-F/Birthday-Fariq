@@ -336,6 +336,24 @@
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
 <script>
+  // AUTO SCROLL HALUS
+let autoScroll;
+
+function startAutoScroll() {
+  autoScroll = setInterval(() => {
+    window.scrollBy({
+      top: 1, // kecil biar pelan
+      behavior: 'smooth'
+    });
+  }, 5); // makin besar = makin lambat
+}
+
+// stop kalau user scroll manual (biar UX enak)
+window.addEventListener('wheel', () => clearInterval(autoScroll));
+window.addEventListener('touchstart', () => clearInterval(autoScroll));
+</script>
+
+<script>
 AOS.init();
 
 const modal = new bootstrap.Modal(document.getElementById('startModal'));
@@ -363,8 +381,11 @@ playBtn.addEventListener('click', ()=>{
     spread: 150,
     origin: { y: 0.6 }
   });
+
+  startAutoScroll(); // 🔥 ini tambahan
 });
 </script>
+
 
 </div>
 </body>
